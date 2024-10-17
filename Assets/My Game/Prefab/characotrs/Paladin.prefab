@@ -1568,9 +1568,9 @@ GameObject:
   - component: {fileID: 2663633846659743271}
   - component: {fileID: 2663633846659743270}
   - component: {fileID: 5463978634355924501}
-  - component: {fileID: 2663633846659743272}
+  - component: {fileID: 1347476255}
   m_Layer: 9
-  m_Name: Paladin Armature
+  m_Name: Paladin Body
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1646,7 +1646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ms_p: {fileID: 11400000, guid: e0a994c32ee4c4251b97343aadbf42ef, type: 2}
-  damageUI: {fileID: 0}
+  damageUI: {fileID: 7483848136551310695, guid: 1873e73a72d514d27a33706bade5c43d,
+    type: 3}
+  directionScene: GameOverScene
 --- !u!114 &5463978634355924501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,8 +1665,10 @@ MonoBehaviour:
   attackCollider: {fileID: 4517348324978949432}
   Counter_WaitFrame: 5
   counterCooldown: 0.5
-  counter_Collider: {fileID: 692593290}
---- !u!114 &2663633846659743272
+  excaveCooldown: 1
+  counterCollider: {fileID: 0}
+  treasureDetectCollider: {fileID: 0}
+--- !u!114 &1347476255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1673,12 +1677,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2663633846659743274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6707840d74b44c119c2e7599e01130e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b2c2a063b05a48969a65a9140fef21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2663633846659743271}
-  moveSpeed: 5
-  jumpPower: 5
+  moveSpeed: 3
+  jumpPower: 3
 --- !u!1 &2803493677421404354
 GameObject:
   m_ObjectHideFlags: 0

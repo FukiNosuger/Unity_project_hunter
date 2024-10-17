@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4056604, g: 0.18943574, b: 0.36364192, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1228,7 +1228,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Encount-er
+  m_text: 'title
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420d263d8a76e4b4f8007b34f4696147, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: d7f8a969b00a14708bacd1c210537e75, type: 2}
