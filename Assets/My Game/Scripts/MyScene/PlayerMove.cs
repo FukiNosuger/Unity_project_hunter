@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
         cameraTrn = camera3Trn.transform;
 
         rigidBody = playerTrn.GetComponent<Rigidbody>();
-        rigidBody.drag = groundDrag;
+        rigidBody.linearDamping = groundDrag;
 
         readyToJump = true;
     }
@@ -88,11 +88,11 @@ public class PlayerMove : MonoBehaviour
         {
             if (isGrounded)
             {
-                rigidBody.drag = groundDrag;
+                rigidBody.linearDamping = groundDrag;
             }
             else
             {
-                rigidBody.drag = 0;
+                rigidBody.linearDamping = 0;
             }
             wasGrounded = isGrounded;
         }
@@ -126,7 +126,7 @@ public class PlayerMove : MonoBehaviour
         {
             rigidBody.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
 
-            if (rigidBody.velocity.y > 0)
+            if (rigidBody.linearVelocity.y > 0)
                 rigidBody.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
         // 地上
@@ -152,16 +152,16 @@ public class PlayerMove : MonoBehaviour
     {
         if (OnSlope() && !exitingSlope)
         {
-            if (rigidBody.velocity.magnitude > moveSpeed)
-                rigidBody.velocity = rigidBody.velocity.normalized * moveSpeed;
+            if (rigidBody.linearVelocity.magnitude > moveSpeed)
+                rigidBody.linearVelocity = rigidBody.linearVelocity.normalized * moveSpeed;
         }
         else
         {
-            Vector3 flatVel = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z);
+            Vector3 flatVel = new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
             if (flatVel.magnitude > moveSpeed)
             {
                 Vector3 limitedVel = flatVel.normalized * moveSpeed;
-                rigidBody.velocity = new Vector3(limitedVel.x, rigidBody.velocity.y, limitedVel.z);
+                rigidBody.linearVelocity = new Vector3(limitedVel.x, rigidBody.linearVelocity.y, limitedVel.z);
             }
         }
 
@@ -195,7 +195,7 @@ public class PlayerMove : MonoBehaviour
             readyToJump = false;
 
             exitingSlope = true;
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 0f, rigidBody.velocity.z);
+            rigidBody.linearVelocity = new Vector3(rigidBody.linearVelocity.x, 0f, rigidBody.linearVelocity.z);
             rigidBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
             Invoke(nameof(ResetJump), jumpCooldown);
